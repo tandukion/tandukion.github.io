@@ -2,6 +2,11 @@
  * Copyright 2020 Dwindra Sulistyoutomo
  */
 
+/* Color list */
+:root {
+  --main-color: rgba(29,128,159,1);
+  --main-color-hover: rgba(29,128,159,0.5);
+}
 
 .body {
   font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
@@ -21,15 +26,20 @@ h6 {
 /* menu icon */
 .menu-toggle {
   position: fixed;
-  right: 15px;
+  left: 15px;
   top: 15px;
   width: 50px;
   height: 50px;
   text-align: center;
   color: #fff;
-  background: rgba(52, 58, 64, 0.5);
+  background: var(--main-color);
   line-height: 50px;
   z-index: 999;
+  transition: all 0.4s ease 0s;
+}
+.menu-toggle.active {
+  left: 265px;
+  transition: all 0.4s ease 0s;
 }
 .scroll-to-top {
   position: fixed;
@@ -40,7 +50,7 @@ h6 {
   height: 50px;
   text-align: center;
   color: white;
-  background: rgba(52, 58, 64, 0.5);
+  background: var(--main-color);
   padding-top: 9px;
 }
 
@@ -54,18 +64,16 @@ h6 {
 /* sidebar content */
 #sidebar-wrapper {
   position: fixed;
-  z-index: 2;
-  right: 0;
+  z-index: 10;
+  left: 0;
   width: 250px;
   height: 100%;
   transition: all 0.4s ease 0s;
-  transform: translateX(250px);
-  background: #1D809F;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateX(-250px);
+  background: var(--main-color);
 }
 #sidebar-wrapper.active {
-  right: 250px;
-  width: 250px;
+  left: 250px;
   transition: all 0.4s ease 0s;
 }
 
@@ -79,7 +87,6 @@ h6 {
 }
 .sidebar-nav li.sidebar-nav-item a {
   display: block;
-  text-decoration: none;
   color: #fff;
   padding: 15px;
 }
@@ -88,29 +95,55 @@ h6 {
   color: #fff;
   background: rgba(255, 255, 255, 0.2);
 }
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
+.sidebar-brand {
+  font-size: 1.25rem;
+  background: rgba(52, 58, 64, 0.3);
+  width: 100%;
 }
-
-.sidebar-nav > .sidebar-brand {
-  font-size: 1.2rem;
-  background: rgba(52, 58, 64, 0.1);
-  height: 80px;
-  line-height: 50px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-}
-
-.sidebar-nav > .sidebar-brand a {
+.sidebar-brand a {
+  display: block;
+  padding: 15px;
   color: #fff;
 }
 
-.sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
-  background: none;
+
+@media (max-width: 992px) {
+  .menu-toggle.active {
+    left: 15px;
+    top: 75px;
+    transition: all 0.4s ease 0s;
+  }
+  #sidebar-wrapper {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    transition: all 0.4s ease 0s;
+    transform: translate(0, -100px);
+  }
+  #sidebar-wrapper.active {
+    left: 0;
+    top: 100px;
+    transition: all 0.4s ease 0s;
+  }
+  .sidebar-nav {
+    position: absolute;
+    width: 100%;
+  }
+  .sidebar-brand, .sidebar-nav-item {
+    display: inline-block;
+    height: 60px;
+  }
+  .sidebar-brand {
+    width: 300px;
+  }
+  .sidebar-nav li.sidebar-nav-item a {
+    padding: 15px;
+    /*width: 80px;*/
+    text-align: center;
+  }
 }
 
 /* ========== Body Contents ========== */
@@ -119,23 +152,49 @@ h6 {
   position: relative;
   width: 100%;
   height: 100vh;
-  background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%),
-          url("../img/bg-masthead.jpg"),
-          center center,
-          no-repeat;
-  background-size: cover;
+  overflow: hidden;
 }
 .page-header h1 {
-  font-size: 5.5rem;
+  font-size: 4rem;
   margin: 0;
   padding: 0;
 }
+.header-container{
+  z-index: 3;
+}
+.img-header-prof-pic {
+  width: 250px;
+  border-radius: 50%;
+}
+.header-bg {
+  position: absolute;
+  max-height: 100%;
+  max-width: 100%;
+}
+.img-header-bg, .img-header-bg-mobile{
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  object-position: right bottom;
+  opacity: 0.8;
+}
+.img-header-bg-mobile {
+  opacity: 0.5;
+  display: none;
+}
+
 /* SCREEN RESPONSIVE */
 @media (max-width: 992px) {
   .page-header h1 {
-    font-size: 4rem;
-}}
+    font-size: 3rem;
+  }
+  .img-header-bg {
+    display: none;
+  }
+  .img-header-bg-mobile {
+    display: block;
+  }
+}
 
 /* Content */
 .content-section {
@@ -146,8 +205,10 @@ h6 {
 .content-section-heading h2 {
   font-size: 3rem;
 }
-
 .content-section-heading h3 {
+  font-size: 2rem;
+}
+.content-section-heading h4 {
   font-size: 1rem;
   text-transform: uppercase;
 }
@@ -165,7 +226,7 @@ h6 {
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: rgba(33, 37, 41, 0.2);
+  background-color: rgba(33, 37, 41, 0.4);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -176,8 +237,10 @@ h6 {
   clip-path: inset(0px);
 }
 .portfolio-item .caption .caption-content {
+  margin: auto 2rem 2rem;
+  padding: 1rem;
+  border-radius: 10px;
   color: #fff;
-  margin: auto 3rem 3rem;
 
   /* transition for hover */
   transition: opacity 0.25s;
@@ -197,11 +260,11 @@ h6 {
 }
 
 .portfolio-item:hover img {
-  clip-path: inset(2rem);
+  clip-path: inset(1rem);
 }
 .portfolio-item:hover .caption {
-  background-color: rgba(29, 128, 159, 0.6);
-  clip-path: inset(2rem);
+  background-color: rgba(33, 37, 41, 0.6);
+  clip-path: inset(1rem);
 }
 
 
@@ -230,4 +293,14 @@ footer.footer .content-section{
   font-size: 1.5rem;
   justify-content: center;
   align-items: center;
+}
+
+.btn-main {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 1rem 2rem;
+}
+.btn-main:hover {
+  background: var(--main-color-hover);
+  color: #fff;
 }

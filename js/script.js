@@ -8,6 +8,7 @@
   // Closes the sidebar menu
   $(".menu-toggle").click(function(e) {
     e.preventDefault();
+    $("#menu-toggle").toggleClass("active");
     $("#sidebar-wrapper").toggleClass("active");
     // Toggles the sidebar icon
     $(".menu-toggle > .fa-bars, .menu-toggle > .fa-times").toggleClass("fa-bars fa-times");
