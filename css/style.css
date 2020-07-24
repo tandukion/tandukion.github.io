@@ -5,6 +5,7 @@
 /* Color list */
 :root {
   --main-color: rgba(29,128,159,1);
+  --main-color-opacity: rgba(29,128,159,0.8);
   --main-color-hover: rgba(29,128,159,0.5);
 }
 
@@ -32,7 +33,7 @@ h6 {
   height: 50px;
   text-align: center;
   color: #fff;
-  background: var(--main-color);
+  background: var(--main-color-opacity);
   line-height: 50px;
   z-index: 999;
   transition: all 0.4s ease 0s;
@@ -50,8 +51,11 @@ h6 {
   height: 50px;
   text-align: center;
   color: white;
-  background: var(--main-color);
+  background: var(--main-color-opacity);
   padding-top: 9px;
+}
+a.menu-toggle:hover, a.scroll-to-top:hover {
+  background: var(--main-color-hover);
 }
 
 .menu-toggle:focus, .menu-toggle:hover, .scroll-to-top:focus, .scroll-to-top:hover {
@@ -70,7 +74,7 @@ h6 {
   height: 100%;
   transition: all 0.4s ease 0s;
   transform: translateX(-250px);
-  background: var(--main-color);
+  background: var(--main-color-opacity);
 }
 #sidebar-wrapper.active {
   left: 250px;
@@ -110,7 +114,7 @@ h6 {
 @media (max-width: 992px) {
   .menu-toggle.active {
     left: 15px;
-    top: 75px;
+    top: 65px;
     transition: all 0.4s ease 0s;
   }
   #sidebar-wrapper {
@@ -119,7 +123,7 @@ h6 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 54px;
     transition: all 0.4s ease 0s;
     transform: translate(0, -100px);
   }
@@ -132,9 +136,11 @@ h6 {
     position: absolute;
     width: 100%;
   }
-  .sidebar-brand, .sidebar-nav-item {
+  .sidebar-brand {
+    display: none;
+  }
+  .sidebar-nav-item {
     display: inline-block;
-    height: 60px;
   }
   .sidebar-brand {
     width: 300px;
