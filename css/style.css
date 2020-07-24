@@ -7,6 +7,7 @@
   --main-color: rgba(29,128,159,1);
   --main-color-opacity: rgba(29,128,159,0.8);
   --main-color-hover: rgba(29,128,159,0.5);
+  --bg-color: rgba(213,243,254,1);
 }
 
 .body {
@@ -159,6 +160,7 @@ a.menu-toggle:hover, a.scroll-to-top:hover {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background: var(--bg-color);
 }
 .page-header h1 {
   font-size: 4rem;
@@ -185,7 +187,7 @@ a.menu-toggle:hover, a.scroll-to-top:hover {
   opacity: 0.8;
 }
 .img-header-bg-mobile {
-  opacity: 0.5;
+  opacity: 0.1;
   display: none;
 }
 
