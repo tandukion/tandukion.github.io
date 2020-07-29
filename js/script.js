@@ -29,5 +29,12 @@
     }
   });
 
+  // Create about image that fit the height of the about content
+  $('.img-about').height($('.about-image-wrapper').height());
+  $('.img-about').width($('.about-image-wrapper').width());
+  $(window).on('resize', function(){
+    $('.img-about').height($('.about-image-wrapper').height());
+    $('.img-about').width($('.about-image-wrapper').width());
+  });
 })(jQuery);
 
