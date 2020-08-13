@@ -263,6 +263,7 @@ a.scroll-to-top:hover {
   transform: translate(-50%, -50%) !important;
   width: 90%;
   max-width: 90%;
+  max-height:calc(100% - 60px);
 }
 
 .close-button {
