@@ -204,6 +204,9 @@ a.scroll-to-top:hover {
   max-width: 520px;
   margin: auto auto 1rem;
 }
+.portfolio-item:hover {
+  cursor: pointer;
+}
 
 .portfolio-item .caption {
   display: flex;
@@ -250,6 +253,32 @@ a.scroll-to-top:hover {
   clip-path: inset(1rem);
 }
 
+.modal-content {
+  display: block;
+}
+.modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 90%;
+  max-width: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: 0; 
+  right: 0;
+  padding: 6px 10px !important;
+  /* z-index: 20; */
+}
+
+/* SCREEN RESPONSIVE */
+@media (max-width: 992px) {
+  .portfolio-desc-media {
+    padding-bottom: 15px;
+  }
+}
 
 /* Footer */
 footer.footer .content-section{
