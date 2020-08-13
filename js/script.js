@@ -36,5 +36,14 @@
     $('.img-about').height($('.about-image-wrapper').height());
     $('.img-about').width($('.about-image-wrapper').width());
   });
+
+  // Lazy load portofolio modal to reduce page load size
+  $('.portfolio-modal').on("show.bs.modal", function () {
+    let images = $(this).find('.lazy-load');
+    images.each(function(){
+      var img = $(this);
+      img.attr('src', img.data('src'));
+    });
+});
 })(jQuery);
 
