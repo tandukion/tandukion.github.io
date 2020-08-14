@@ -187,6 +187,15 @@ a.scroll-to-top:hover {
   object-fit: cover;
   object-position: 	center center;
 }
+.skill-content {
+  margin: 16px 0;
+}
+.img-skill {
+  height: 60px;
+  width: auto;
+  margin: 0 10px;
+}
+
 /* SCREEN RESPONSIVE */
 @media (max-width: 992px) {
   .about-image-wrapper {

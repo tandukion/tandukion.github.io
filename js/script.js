@@ -44,6 +44,9 @@
       var img = $(this);
       img.attr('src', img.data('src'));
     });
-});
+  });
+
+  // Skills pop-up
+  $('.img-skill').popover();
 })(jQuery);
 
