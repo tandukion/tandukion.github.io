@@ -290,7 +290,6 @@ img.center {
   overflow: hidden;
   padding-top: 56.25%;
   position: relative;
-  background-color: black;
 }
 .video-container iframe, .video-container video {
    border: 0;
@@ -302,6 +301,7 @@ img.center {
 }
 .video-container video {
   height: auto;
+  background-color: black;
 }
 
 .close-button {
@@ -309,7 +309,6 @@ img.center {
   top: 0; 
   right: 0;
   padding: 6px 10px !important;
-  /* z-index: 20; */
 }
 
 /* SCREEN RESPONSIVE */
