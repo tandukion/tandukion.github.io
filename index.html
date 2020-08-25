@@ -74,6 +74,60 @@
         <h2 class="mb-5">Projects</h2>
       </div>
       <div class="row no-gutters">
+        <!-- Servo Robot Arm project -->
+        <div class="col-lg-6">
+          <a class="portfolio-item" data-toggle="modal" data-target="#servorobotModal">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">Servo Robot Arm</div>
+                <p class="mb-0">ROS driver for 6DOF Servo Robot Arm based on ROS-Industrial</p>
+              </div>
+            </div>
+            <img class="img-fluid" src="img/portfolio/2019_servorobotarm_s.png" alt="">
+          </a>
+        </div>
+        <div class="modal portfolio-modal fade" id="servorobotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="container-fluid p-1">
+                  <div class="row">
+                    <div class="col-lg-6 portfolio-desc-media">
+                      <img class="img-fluid lazy-load" data-src="img/portfolio/2019_servorobotarm.png" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="h2">Servo Robot Arm</div>
+                      <div class="portfolio-desc-text">
+                        Based on library created by <a target="_blank" href="http://wiki.ros.org/Industrial">ROS-Industrial</a>,
+                        it is possible to develop any ROS driver for industrial robot arm.</br>
+                        In this project, I created a ROS driver for a robot arm which uses servo motors as the actuators.
+                        This kind of robot is commonly known and one can buy it easily anywhere.
+                        The purpose is to make it possible for anyone who wanted to try ROS-Industrial library even on a simple servo robot. 
+                      </div>
+                      <div class="portfolio-desc-text">
+                        Currently, the ROS driver is defined for 6DOF Servo Robot Arm.
+                        The moveit configuration is already set according to the 3D model defined on the robot description.</br>
+                        <a target="_blank" href="https://github.com/tandukion/servorobot">See repository for ROS Driver</a>
+                      </div>
+                      <div class="portfolio-desc-text">
+                        On robot side, ROS controller is defined to handle the communication with the ROS Driver.
+                        The ROS Controller includes <a target="_blank" href="http://wiki.ros.org/simple_message">Simple Message</a> as the main
+                        communication protocol from ROS-Industrial.
+                        The ROS Controller manages joint commands and robot status message based on that protocol.
+                        </br><a target="_blank" href="https://github.com/tandukion/ros_controller">See repository for ROS Controller on robot side</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <!-- Musculoskeletal project -->
         <div class="col-lg-6">
           <a class="portfolio-item" data-toggle="modal" data-target="#musculoskeletalModal">
