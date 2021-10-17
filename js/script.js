@@ -5,6 +5,10 @@
 (function($) {
   "use strict"; // Start of use strict
 
+  // Sort the portfolio list to add priority to show first
+  let firstChild = $('#portfolio-list').children().first();
+  $('#musculoskeletal-card').insertBefore(firstChild);
+
   // Smooth scrolling using jQuery Easing
   $('a.js-scroll-trigger[href*="#"]').click(function() {
     if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
