@@ -348,9 +348,22 @@ footer.footer .content-section{
 .btn-main {
   background-color: var(--main-color);
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
 }
 .btn-main:hover {
   background: var(--main-color-hover);
   color: #fff;
+}
+
+.btn-main.redirect-link {
+  font-size: 1.25rem;
+}
+
+.center-elements {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+.center-elements p {
+  margin: 0 1rem;
 }
