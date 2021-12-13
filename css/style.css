@@ -137,6 +137,11 @@ a.scroll-to-top:hover {
 }
 
 /* SCREEN RESPONSIVE */
+@media (max-width: 1366px) {
+  .img-header-bg {
+    opacity: 0.4;
+  }
+}
 @media (max-width: 992px) {
   .page-header h1 {
     font-size: 3rem;
