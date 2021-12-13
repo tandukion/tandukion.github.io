@@ -5,16 +5,6 @@
 (function($) {
   "use strict"; // Start of use strict
 
-// Get config data first
-$.get('_data/_config.yml', function(data) {
-  // --- PRE-PROCESS config ---
-  let config = jsyaml.load(data);
-
-  // prepend # to identify ID on portfolio order, and add "-card"
-  $.each(config.portfolio_order, function(i, value){
-    config.portfolio_order[i] = "#"+value+"-card";
-  });
-
   // Sort the portfolio list to add priority to show first
   // Sorting function
   $.fn.orderChildren = function(order) {
@@ -27,7 +17,7 @@ $.get('_data/_config.yml', function(data) {
     return this;
   };
 
-  $('#portfolio-list').orderChildren(config.portfolio_order);
+  $('#portfolio-list').orderChildren(config.PortfolioOrder);
 
   // Smooth scrolling using jQuery Easing
   $('a.js-scroll-trigger[href*="#"]').click(function() {
@@ -73,6 +63,6 @@ $.get('_data/_config.yml', function(data) {
   // Skills pop-up
   $('.img-skill').popover();
 
-});
+// });
 })(jQuery);
 
