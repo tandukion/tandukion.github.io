@@ -6,8 +6,7 @@
   "use strict"; // Start of use strict
 
 // Get config data first
-$.get('_config.yml', function(data) {
-  console.log(data);
+$.get('_data/_config.yml', function(data) {
   // --- PRE-PROCESS config ---
   let config = jsyaml.load(data);
 
@@ -19,7 +18,6 @@ $.get('_config.yml', function(data) {
   // Sort the portfolio list to add priority to show first
   // Sorting function
   $.fn.orderChildren = function(order) {
-    console.log(order)
     this.each(function() {
       var el = $(this);
       for(var i = order.length - 1; i >= 0; i--) {
