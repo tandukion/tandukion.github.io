@@ -77,17 +77,63 @@
         <h2 class="mb-5">Projects</h2>
       </div>
       <div class="row no-gutters" id="portfolio-list">
-        <!-- Mobile Robot project -->
-        <div class="col-lg-6" id="mobilerobot-card">
-          <a class="portfolio-item" data-toggle="modal" data-target="#mobilerobotModal">
+        <!-- Mini SLAM Robot project -->
+        <div class="col-lg-6" id="minislamrobot-card">
+          <a class="portfolio-item" data-toggle="modal" data-target="#minislamrobotModal">
             <div class="caption">
               <div class="caption-content">
-                <div class="h2">Mobile Robot</div>
-                <p class="mb-0">Cheap and simple mobile robot with ROS support</p>
+                <div class="h2">Mini SLAM Robot</div>
+                <p class="mb-0">Small, powerful, low-cost SLAM robot with ROS support</p>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/2020_mobilerobot_s.jpg" alt="">
+            <img class="img-fluid" src="img/portfolio/2020_minislamrobot_s.jpg" alt="">
           </a>
+        </div>
+        <div class="modal portfolio-modal fade" id="minislamrobotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="container-fluid p-1">
+                  <div class="row">
+                    <div class="col-lg-6 portfolio-desc-media">
+                      <img class="img-fluid lazy-load" data-src="img/portfolio/2020_minislamrobot.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="h2">Mini SLAM Robot</div>
+                      <div class="portfolio-desc-text">
+                        SLAM (simultaneous localization and mapping) is essential for autonomous robots.
+                        With the availability of low-cost sensors, it is possible to build our own SLAM inexpensively.
+                        The main objective of this project is to build a reliable mobile robot platform for other mobile robot projects,
+                        like reinforcement learning.
+                      </div>
+                      <div class="portfolio-desc-text">
+                        In this project, I built a mini LiDAR-based SLAM robot.
+                        The robot uses a 4WD Robot Kit that includes robot chassis, 4 DC motors, DC motor driver, Raspberry Pi Camera, and ultrasonic sensor.
+                        The robot kit has a customization feature, and it is possible to mount external LiDAR on top of the robot body.
+                        However, the kit has a limitation that only Raspberry Pi boards are supported.
+                        For the LiDAR, I use YDLIDAR X2L for its small size yet good range&mdash;perfect for indoor robots and development&mdash;, and it is a perfect fit
+                        on top of the robot.
+                        Furthermore, the robot has MPU6050 IMU mounted for an additional sensor.
+                      </div>
+                      <img class="center lazy-load" data-src="img/portfolio/2020_minislamrobot_parts.png" alt="" style="width:75%;">
+                      <div class="portfolio-desc-text">
+                        The chosen lidar sensor supports ROS-based development (see 
+                        <a target="_blank" href="https://github.com/tandukion/ydlidar_ros">YDLIDAR ROS package</a>).
+                        To process the data, we will use the
+                        <a target="_blank" href="http://wiki.ros.org/hector_slam">Hector-SLAM ROS package</a>. 
+                        Hector-SLAM is an algorithm that can be used without odometry and only requires lidar scan data.
+                        T
+                      </div>
+                      <img class="center lazy-load" data-src="img/portfolio/2020_minislamrobot_slam.png" alt="" style="width:75%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Servo Robot Arm project -->
