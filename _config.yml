@@ -1,0 +1,10 @@
+
+# Portfolio projects order
+# NOTE: just add the keyword Later, will be updated with # and -card.
+portfolio_order:
+  - musculoskeletal
+  - minislamrobot
+  - servorobot
+  - robosoccer
+  - iscaps
+  - yunandroid

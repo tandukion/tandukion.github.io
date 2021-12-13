@@ -5,9 +5,31 @@
 (function($) {
   "use strict"; // Start of use strict
 
+// Get config data first
+$.get('_config.yml', function(data) {
+  console.log(data);
+  // --- PRE-PROCESS config ---
+  let config = jsyaml.load(data);
+
+  // prepend # to identify ID on portfolio order, and add "-card"
+  $.each(config.portfolio_order, function(i, value){
+    config.portfolio_order[i] = "#"+value+"-card";
+  });
+
   // Sort the portfolio list to add priority to show first
-  let firstChild = $('#portfolio-list').children().first();
-  $('#musculoskeletal-card').insertBefore(firstChild);
+  // Sorting function
+  $.fn.orderChildren = function(order) {
+    console.log(order)
+    this.each(function() {
+      var el = $(this);
+      for(var i = order.length - 1; i >= 0; i--) {
+        el.prepend(el.children(order[i]));
+      }
+    });
+    return this;
+  };
+
+  $('#portfolio-list').orderChildren(config.portfolio_order);
 
   // Smooth scrolling using jQuery Easing
   $('a.js-scroll-trigger[href*="#"]').click(function() {
@@ -52,5 +74,7 @@
 
   // Skills pop-up
   $('.img-skill').popover();
+
+});
 })(jQuery);
 
