@@ -211,6 +211,10 @@ a.scroll-to-top:hover {
   }
 }
 /* Portfolio */
+#portfolio-list, #portfolio-sublist {
+  justify-content: center;
+}
+
 .portfolio-item {
   display: block;
   position: relative;
@@ -226,7 +230,7 @@ a.scroll-to-top:hover {
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: rgba(33, 37, 41, 0.4);
+  background-color: rgba(33, 37, 41, 0.4); /* to shade the image */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -245,10 +249,6 @@ a.scroll-to-top:hover {
   /* transition for hover */
   transition: opacity 0.25s;
 }
-.portfolio-item .caption .caption-content h2 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
 .portfolio-item .caption .caption-content p {
   font-weight: 300;
   font-size: 1.2rem;
@@ -265,6 +265,27 @@ a.scroll-to-top:hover {
 .portfolio-item:hover .caption {
   background-color: rgba(33, 37, 41, 0.6);
   clip-path: inset(1rem);
+}
+
+/* Sub item for smaller item */
+.col-lg-4 .portfolio-item {
+  max-width: 320px;
+}
+.col-lg-4 .portfolio-item .caption .caption-content {
+  margin: auto 1rem 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #fff;
+
+  /* transition for hover */
+  transition: opacity 0.25s;
+}
+.col-lg-4 .portfolio-item .caption .caption-content .h2 {
+  font-size: 1.5rem;
+}
+.col-lg-4 .portfolio-item .caption .caption-content p {
+  font-weight: 300;
+  font-size: 1rem;
 }
 
 .modal-content {

@@ -5,7 +5,7 @@
 (function($) {
   "use strict"; // Start of use strict
 
-  // Sort the portfolio list to add priority to show first
+  // --- PORTFOLIO functions ---
   // Sorting function
   $.fn.orderChildren = function(order) {
     this.each(function() {
@@ -17,7 +17,25 @@
     return this;
   };
 
+  // Moving to sublist function
+  $.fn.filterChildren = function() {
+    // Show sublist header
+    if (this.children().length > config.ProjectHighlightCount) {
+      $('#portfolio-sublist-header').show();
+    }
+
+    // Move children
+    this.children().each(function(i, child){
+      if (i > config.ProjectHighlightCount-1) {
+        let el = $(this);
+        el.removeClass("col-lg-6").addClass("col-lg-4"); 
+        el.detach().appendTo('#portfolio-sublist');
+      }
+    });
+  };
+
   $('#portfolio-list').orderChildren(config.PortfolioOrder);
+  $('#portfolio-list').filterChildren();
 
   // Smooth scrolling using jQuery Easing
   $('a.js-scroll-trigger[href*="#"]').click(function() {
