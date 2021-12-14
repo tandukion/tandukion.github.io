@@ -1,5 +1,6 @@
 let config = {
   PortfolioOrder: [
+    "#krcpalletizing-card",
     "#musculoskeletal-card",
     "#minislamrobot-card",
     "#servorobot-card",
