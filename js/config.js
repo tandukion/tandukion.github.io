@@ -4,6 +4,7 @@ let config = {
     "#krcpalletizing-card",
     "#musculoskeletal-card",
     "#minislamrobot-card",
+    "#musculoskeletal-mofp-gui-card",
     "#servorobot-card",
     "#robosoccer-card",
     "#iscaps-card",
