@@ -5,6 +5,25 @@
 (function($) {
   "use strict"; // Start of use strict
 
+  const currentYear = document.getElementById('current-year');
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+
+  document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+    const rel = link.getAttribute('rel') || '';
+    const hasNoopener = rel.split(/\s+/).includes('noopener');
+    const hasNoreferrer = rel.split(/\s+/).includes('noreferrer');
+    const nextRel = [
+      ...new Set([
+        ...rel.split(/\s+/).filter(Boolean),
+        ...(hasNoopener ? [] : ['noopener']),
+        ...(hasNoreferrer ? [] : ['noreferrer'])
+      ])
+    ].join(' ');
+    link.setAttribute('rel', nextRel);
+  });
+
   // --- PORTFOLIO functions ---
   // Sorting function
   $.fn.orderChildren = function(order) {
