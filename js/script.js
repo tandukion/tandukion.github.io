@@ -10,7 +10,17 @@
     currentYear.textContent = new Date().getFullYear();
   }
 
-  document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+  document.querySelectorAll('a[href]').forEach(function(link) {
+    const href = link.getAttribute('href').trim();
+    if (
+      href.startsWith('#') ||
+      /^(mailto:|tel:|javascript:)/i.test(href)
+    ) {
+      return;
+    }
+
+    link.setAttribute('target', '_blank');
+
     const rel = link.getAttribute('rel') || '';
     const hasNoopener = rel.split(/\s+/).includes('noopener');
     const hasNoreferrer = rel.split(/\s+/).includes('noreferrer');
@@ -36,18 +46,29 @@
     return this;
   };
 
-  // Moving to sublist function
+  // Resize selected cards and move other projects to the sublist.
   $.fn.filterChildren = function() {
-    // Show sublist header
-    if (this.children().length > config.ProjectHighlightCount) {
+    const children = this.children();
+    const selectedProjectCount = config.SelectedProjectCount;
+
+    if (children.length > selectedProjectCount) {
       $('#portfolio-sublist-header').show();
     }
 
-    // Move children
-    this.children().each(function(i, child){
-      if (i > config.ProjectHighlightCount-1) {
+    if (children.length > config.LargeProjectCount) {
+      children.eq(config.LargeProjectCount).before(
+        '<div class="col-12 content-section-heading text-center mt-4"><h5 class="mb-0">Other Projects</h5></div>'
+      );
+    }
+
+    children.each(function(i) {
+      if (i >= config.LargeProjectCount) {
         let el = $(this);
         el.removeClass("col-lg-6").addClass("col-lg-4"); 
+      }
+
+      if (i >= selectedProjectCount) {
+        let el = $(this);
         el.detach().appendTo('#portfolio-sublist');
       }
     });
@@ -102,4 +123,3 @@
 
 // });
 })(jQuery);
-

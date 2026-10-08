@@ -1,0 +1,15 @@
+.header-tagline { font-size: 1.15rem; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.header-links .btn { border-width: 2px; }
+
+.timeline { margin-top: 2rem; }
+.timeline li { padding: .6rem 0; border-top: 1px solid rgba(0,0,0,.1); }
+.timeline li:first-child { border-top: 0; }
+.timeline-year { display: inline-block; min-width: 7.5rem; color: #6c757d; font-variant-numeric: tabular-nums; }
+
+.pub-list { padding-left: 1.2rem; }
+.pub-list li { margin-bottom: 1.2rem; line-height: 1.6; }
+.pub-links a { white-space: nowrap; }
+
+@media (max-width: 575px) {
+  .timeline-year { display: block; min-width: 0; }
+}
