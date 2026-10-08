@@ -10,7 +10,17 @@
     currentYear.textContent = new Date().getFullYear();
   }
 
-  document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+  document.querySelectorAll('a[href]').forEach(function(link) {
+    const href = link.getAttribute('href').trim();
+    if (
+      href.startsWith('#') ||
+      /^(mailto:|tel:|javascript:)/i.test(href)
+    ) {
+      return;
+    }
+
+    link.setAttribute('target', '_blank');
+
     const rel = link.getAttribute('rel') || '';
     const hasNoopener = rel.split(/\s+/).includes('noopener');
     const hasNoreferrer = rel.split(/\s+/).includes('noreferrer');
