@@ -1,5 +1,6 @@
 let config = {
-  ProjectHighlightCount: 4,
+  SelectedProjectCount: 7,
+  LargeProjectCount: 4,
   PortfolioOrder: [
     "#mhirepalletizing-card",
     "#krcpalletizing-card",
